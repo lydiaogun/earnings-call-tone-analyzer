@@ -14,6 +14,3 @@ def scorer(text, phrase_list):
 
     return count / word_count
 
-
-test = "We believe growth was strong, but it's hard to say."
-print(scorer(test, ["we believe", "strong", "hard to say"]))
