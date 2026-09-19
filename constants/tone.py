@@ -47,3 +47,5 @@ MILD_HEDGING = [
   "for now", "in the near term", "subject to", "assuming", "preliminary",
   "tentative", "plus or minus", "give or take", "our best estimate", "if things"
 ]
+
+NEGATIONS = ["not", "no", "never", "without", "n't", "hardly", "cannot", "isn't", "wasn't", "aren't", "don't"]

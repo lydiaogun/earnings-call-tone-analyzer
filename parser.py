@@ -7,7 +7,10 @@ def parse_all_transcripts(folder="resources"):
 
     Returns a list of transcript dicts, one per file.
     """
-    filepaths = sorted(glob.glob(os.path.join(folder, "*.txt")))
+    filepaths = sorted(glob.glob(os.path.join(folder, "*_*.txt")))
+    # sorted so files always come back in the same order
+    # (only "<company>_<date>.txt" files are transcripts; other .txt files
+    # in this folder, e.g. word lists, are skipped)
     results = []
     for filepath in filepaths:
         results.append(parse_transcript(filepath))
@@ -37,6 +40,8 @@ def parse_transcript(filepath):
     marker = "QUESTION AND ANSWER SECTION"
     if marker in text:
         prepared_text, qa_text = text.split(marker, 1)
+        # prepared text means the script the speaker wrote for themselves
+        # qa text means what the speaker actually said 
     else:
         # no marker found: treat the whole thing as prepared, warn, leave Q&A empty
         print(f"WARNING: no Q&A marker found in {filename}")
